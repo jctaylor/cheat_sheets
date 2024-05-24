@@ -27,7 +27,6 @@ fi
 
 ### default values
 
-
 ```bash
 str1="Hello"
 str2="World"
@@ -105,6 +104,7 @@ echo ${myArr[@]:3:2}  # three 4
 
 ## References
 
+[ABS](https://tldp.org/LDP/abs/html/index.html)
 [string manipulation](https://tldp.org/LDP/abs/html/string-manipulation.html)
 
 

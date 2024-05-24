@@ -32,3 +32,11 @@ Squashing is done during a rebase.
 git rebase -i HEAD~3
 ```
 
+## Merge base
+
+Show common root of two divering branches
+
+```bash
+git merge-base commit1 commit2
+```
+
