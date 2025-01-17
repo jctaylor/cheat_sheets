@@ -36,6 +36,7 @@ echo ${str3-You} # You   Does not set str3
 ```
 
 ```bash
+# Like before except the variable picks up the value
 str1="Hello"
 str2="World"
 # str3 is unset
@@ -67,21 +68,21 @@ str=01234abcdef
 ${str:3:5}  # from index 3 to 3+5 = 345ab
 
 # right indexing too, but the negative sign must be distiguished
-${str:-4}  # 012345abcdef  ( or 4 if "$str" = "" i.e. default )
+${str:-4}  # 012345abcdef  ( or 4 if "$str" = "" i.e. default )  (Not on bash on Mac)
 ```
 
 ## Replacement
 ```bash
 str1="The 1st car is blue, and the 2nd car is blue"
 echo ${str1/blue/red}    # The 1st car is red, and the 2nd car is blue
-echo ${str1//blue/grey}  # The 1st car is grey, and the 2nd car is grey
+echo ${str1//blue/grey}  # The 1st car is grey, and the 2nd car is grey (Note the double '//')
 ```
 
 ```bash
 # Replace whole string if prefix matches
 cc="gcc-v2.0"
-echo ${cc/#gcc/clang}     # clang
-echo ${cc/#gcc-v3/clang}  # gcc-v2.0
+echo ${cc/#gcc/clang}     # clang  "gcc" --> "clang"
+echo ${cc/#gcc-v3/clang}  # gcc-v2.0  no change since gcc-v3 does not match!
 ```
 
 ## Indirect references
@@ -98,8 +99,8 @@ echo ${!str*}     # str1 str2
 ### Array indexing
 
 ```bash
-myArr=( ZERO one 2 three 4 b b b )
-echo ${myArr[@]:3:2}  # three 4
+myArr=( ZERO one 2 three 4 b b b )  # Array variable
+echo ${myArr[@]:3:2}  # three 4 (index 3 to 3+2)
 ```
 
 ## References
